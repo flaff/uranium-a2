@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LibraryComponent } from './library/library.component';
 import { TileComponent } from './library/tile/tile.component';
 import { FilterPipe } from './library/filter.pipe';
-import { NameFilterPipe } from './library/name-filter.pipe';
 import { GridEntryComponent } from './grid-entry/grid-entry.component';
+import { SearchComponent } from './library/search/search.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,14 @@ import { GridEntryComponent } from './grid-entry/grid-entry.component';
     LibraryComponent,
     TileComponent,
     FilterPipe,
-    NameFilterPipe,
     GridEntryComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    JsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

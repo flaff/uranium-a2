@@ -18,8 +18,20 @@ $saturated: #c82282;
 }
 
 @mixin selection {
-  &::-moz-selection,
-  &::selection {
+  ::-moz-selection,
+  ::selection {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 960px) {
     @content;
   }
 }

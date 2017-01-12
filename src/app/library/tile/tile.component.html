@@ -1,12 +1,10 @@
 <div class="cover-container">
   <div class="hover-info">
-    {{app.name}}
+    <div class="app-name">{{app.name}}</div>
   </div>
   <img [src]="cover" class="cover"/>
 </div>
 
-<div *ngFor="let genre of app.genres">
-  genre: {{genre.name}}
+<div class="genres">
+  <span *ngFor="let genre of app.genres" class="genre">{{genre.name}}</span>
 </div>
-{{cover}}
-
