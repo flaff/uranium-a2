@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'imports';
+
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  background: $bg-color;
+  color: $secondary;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  @include selection {
+    background-color: $saturated;
+  }
+}
+
+input {
+  font-family: inherit;
+}

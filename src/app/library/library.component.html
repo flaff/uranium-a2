@@ -1,0 +1,8 @@
+<div class="search-bar">
+  <i class="fa fa-search search-icon" aria-hidden="true" #searchIcon></i>
+  <input [(ngModel)]="query" placeholder="Szukaj" class="search-input" (focus)="onSearchFocus()" (blur)="onSearchBlur()">
+</div>
+
+<div class="apps">
+  <app-tile *ngFor="let app of apps | filter:query" [app]="app"></app-tile>
+</div>

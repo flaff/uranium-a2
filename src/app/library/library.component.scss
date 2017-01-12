@@ -1,0 +1,42 @@
+@import '../../imports';
+
+.apps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-bar {
+  margin: 30px;
+}
+
+.search-input {
+  color: inherit;
+  background: inherit;
+  font-size: 1rem;
+
+  outline: none;
+  border: none;
+
+  padding: 15px 15px 15px 45px;
+  width: 300px;
+
+  @include placeholder {
+    color: $secondary;
+  }
+}
+
+.search-icon {
+  margin-right: -30px;
+  margin-left: 15px;
+  pointer-events: none;
+}
+
+.search-icon, .search-input {
+  transition: color 500ms ease;
+  &:focus {
+    color: white;
+  }
+  &.focused {
+    color: white;
+  }
+}

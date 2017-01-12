@@ -1,0 +1,25 @@
+$bg-color: #431e33;
+$secondary: #863c66;
+$saturated: #c82282;
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    @content;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    @content;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    @content;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+}
+
+@mixin selection {
+  &::-moz-selection,
+  &::selection {
+    @content;
+  }
+}

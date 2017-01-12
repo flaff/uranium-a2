@@ -1,0 +1,26 @@
+$cover-ratio: 0.467;
+:host {
+  display: block;
+  width: 30%;
+}
+
+.cover-container {
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+
+.cover {
+  width: 100%;
+  margin-bottom: -4px;
+}
+
+.hover-info {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  &:hover {
+    opacity: 1;
+  }
+}
