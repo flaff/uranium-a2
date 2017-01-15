@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {SteamApp} from "../steam.service";
+import {SteamApp, SteamService} from "../steam.service";
 
 @Component({
   selector: 'app-tile',
@@ -11,14 +11,14 @@ export class TileComponent implements OnInit {
   @Input() app: SteamApp;
   cover: string;
 
-  constructor() { }
+  constructor(private steamService: SteamService) { }
 
   ngOnInit() {
     this.cover = getCoverById(this.app.id);
   }
 
   onGenreClick (genre) {
-    console.log(genre.name, 'clicked');
+    this.steamService.queryUpdate.emit(genre.name);
   }
 }
 

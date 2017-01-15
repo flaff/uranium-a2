@@ -12,6 +12,7 @@ export class SteamService {
   private steamQueryUrl: string;
 
   public steamApps: EventEmitter<SteamApp[]>;
+  public queryUpdate: EventEmitter<string>;
 
   constructor(private http: Http) {
     this.serverLocation = String(window.location).replace(':4200', ':3141').replace(':8080', ':3141');
@@ -21,6 +22,7 @@ export class SteamService {
     this.steamQueryUrl = this.serverLocation + 'steam-search/';
 
     this.steamApps = new EventEmitter();
+    this.queryUpdate = new EventEmitter();
   }
 
   public getApps() {

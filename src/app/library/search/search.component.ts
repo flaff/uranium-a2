@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import {SteamService} from "../steam.service";
 
 @Component({
   selector: 'app-search',
@@ -22,7 +23,8 @@ export class SearchComponent implements OnInit {
     this.queryChange.emit(this.queryValue);
   }
 
-  constructor() {
+  constructor(private steamService: SteamService) {
+    this.steamService.queryUpdate.subscribe(value => this.query = value);
     this.query = '';
   }
 
