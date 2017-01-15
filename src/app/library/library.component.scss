@@ -9,6 +9,21 @@
 .apps {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 6rem;
 }
 
+.navbar {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $bg-color;
+  z-index: 1;
+  padding-bottom: 0;
+  box-shadow: 0 2rem 2rem 0 $bg-color;
+  max-width: 75rem;
+  margin: 0 auto;
+}
 

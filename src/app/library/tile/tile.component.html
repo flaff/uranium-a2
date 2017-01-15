@@ -1,10 +1,15 @@
 <div class="cover-container">
   <div class="hover-info">
     <div class="app-name">{{app.name}}</div>
+    <div>
+      <i class="fa fa-download icon-button disabled" aria-hidden="true"></i>
+      <a class="fa fa-steam icon-button" aria-hidden="true" [href]="'http://store.steampowered.com/app/' + app.id" target="_blank"></a>
+
+    </div>
   </div>
   <img [src]="cover" class="cover"/>
 </div>
 
 <div class="genres">
-  <span *ngFor="let genre of app.genres" class="genre">{{genre.name}}</span>
+  <span *ngFor="let genre of app.genres" class="genre" (click)="onGenreClick(genre)">{{genre.name}}</span>
 </div>

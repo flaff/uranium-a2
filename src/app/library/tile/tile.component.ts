@@ -16,6 +16,10 @@ export class TileComponent implements OnInit {
   ngOnInit() {
     this.cover = getCoverById(this.app.id);
   }
+
+  onGenreClick (genre) {
+    console.log(genre.name, 'clicked');
+  }
 }
 
 function getCoverById (id) {

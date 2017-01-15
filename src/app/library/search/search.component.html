@@ -1,0 +1,7 @@
+<i class="fa search-icon fa-search" aria-hidden="true"
+   [ngClass]="{'fa-times': searchIconHovered && query, 'not-empty': query}"
+   #searchIcon (mouseover)="onSearchIconMouseover()" (mouseout)="onSearchIconMouseout()" (click)="onSearchIconClick()"></i>
+
+<input [(ngModel)]="query" placeholder="Szukaj" class="search-input"
+       #searchInput (focus)="onSearchFocus()" (blur)="onSearchBlur()">
+

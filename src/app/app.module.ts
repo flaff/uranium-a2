@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import { LibraryComponent } from './library/library.component';
 import { TileComponent } from './library/tile/tile.component';
 import { FilterPipe } from './library/filter.pipe';
-import { GridEntryComponent } from './grid-entry/grid-entry.component';
 import { SearchComponent } from './library/search/search.component';
+import { AddComponent } from './library/add/add.component';
+import { SuggestionComponent } from './library/suggestion/suggestion.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { SearchComponent } from './library/search/search.component';
     LibraryComponent,
     TileComponent,
     FilterPipe,
-    GridEntryComponent,
     SearchComponent,
+    AddComponent,
+    SuggestionComponent,
   ],
   imports: [
     BrowserModule,

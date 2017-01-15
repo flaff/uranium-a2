@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'imports';
+@import 'imports',
+        'preloader';
 
 
 html {
@@ -24,5 +25,6 @@ input {
 }
 
 @include selection {
+  color: white;
   background: $saturated;
 }

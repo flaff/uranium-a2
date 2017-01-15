@@ -1,0 +1,159 @@
+@import '../../../imports';
+
+@mixin show-element-animation {
+  @include transform-origin(calc(100% - 1.5rem) 1.5rem);
+  @include animation(show-element 0.3s 1);
+}
+
+$suggestion-width: 15rem;
+$bg-aspect-ratio: 0.375;
+
+:host {
+  align-self: center;
+}
+
+.query-input {
+  width: $suggestion-width;
+  max-width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  color: $saturated;
+  border-bottom: 1px solid $saturated;
+  @include placeholder {
+    color: rgba($saturated, 0.5);
+  }
+}
+
+.add-icon {
+  margin: 1rem 1rem 0 1rem;
+  padding: 1rem;
+}
+
+.add-modal {
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  background: white;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  top: 0;
+  @include show-element-animation;
+  transition: transform 300ms ease;
+
+  &.closing {
+    @include transform(scale(0));
+  }
+}
+
+.suggestion {
+  width: $suggestion-width;
+  height: $suggestion-width * $bg-aspect-ratio;
+  max-width: 100%;
+  color: white;
+  position: relative;
+}
+
+.suggestion-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.suggestion-cover, .suggestion-hover-content {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  //opacity: 0.2;
+  position: absolute;
+}
+
+.suggestion-hover-content {
+  display: flex;
+  align-items: center;
+
+  transition: opacity 300ms ease;
+  background: rgba(black, 0.8);
+  opacity: 0;
+  &:hover, &.always-show {
+    opacity: 1;
+  }
+}
+
+.add-app-loading {
+  border: 1px solid rgba(white, 0.5);
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 50%;
+  .loader {
+    width: 1.9rem;
+    margin: 0.5rem;
+  }
+}
+
+.remove-app-icon {
+  color: rgba(white, 0.5);
+  border-radius: 50%;
+  padding: 1rem;
+  border: 1px solid rgba(white, 0.5);
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  margin: 0 auto;
+
+  transition: border-color 300ms ease;
+
+  .fa-check, .fa-remove {
+    pointer-events: none;
+    transition: opacity 300ms ease;
+    position: absolute;
+    display: block;
+  }
+  .fa-check {
+    color: chartreuse;
+  }
+  .fa-remove {
+    color: $saturated;
+    font-size: 1.2rem;
+    line-height: 1rem;
+  }
+
+  .fa-check { opacity: 1 }
+  .fa-remove { opacity: 0 }
+
+  &:hover {
+    border-color: $saturated;
+    .fa-check { opacity: 0 }
+    .fa-remove { opacity: 1 }
+  }
+}
+
+.add-app-icon {
+  color: rgba(white, 0.5);
+  border-radius: 50%;
+  padding: 1rem;
+  border: 1px solid rgba(white, 0.5);
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  margin: 0 auto;
+  text-decoration: none;
+
+  transition: color 300ms ease, border-color 300ms ease;
+  &:hover {
+    color: white;
+    border-color: white;
+  }
+}
+
+@include keyframes(show-element) {
+  from {
+    @include transform(scale(0));
+  }
+  to {
+    @include transform(scale(1));
+  }
+}
+

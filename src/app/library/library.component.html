@@ -1,4 +1,7 @@
-<app-search [(query)]="query"></app-search>
+<div class="navbar">
+  <app-search [(query)]="query"></app-search>
+  <app-add></app-add>
+</div>
 
 <div class="apps">
   <app-tile *ngFor="let app of apps | filter:query" [app]="app"></app-tile>

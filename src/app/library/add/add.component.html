@@ -1,0 +1,30 @@
+<i class="fa fa-plus add-icon" aria-hidden="true" (click)="onOpenAddModalClick()"></i>
+
+<div class="add-modal" [ngClass]="{'closing': closingModal}" *ngIf="modalVisible" (blur)="closeModal()" (focus)="cancelCloseModal()" tabindex="0">
+  <input placeholder="Szukaj w Steam" class="query-input" [(ngModel)]="query" #queryInput (blur)="closeModal()" (focus)="cancelCloseModal()">
+  <div class="suggestions">
+    <div class="suggestion" *ngFor="let suggestion of suggestions">
+      <div class="suggestion-cover" [ngStyle]="{'background-image': 'url(' + suggestion.cover + ')' }"></div>
+      <!--<div class="suggestion-content">-->
+        <!--<span class="suggestion-title">{{suggestion.name}}</span>-->
+        <!--<span class="suggestion-price">{{suggestion.price}}</span>-->
+      <!--</div>-->
+      <div class="suggestion-hover-content" [ngClass]="{'always-show': (suggestion.inLibrary || suggestion.inProcess)}">
+        <i class="fa fa-plus add-app-icon" aria-hidden="true" (click)="onAddRemoveClick(suggestion)" *ngIf="(!suggestion.inLibrary && !suggestion.inProcess)"></i>
+        <i class="remove-app-icon" *ngIf="(suggestion.inLibrary && !suggestion.inProcess)" (click)="onAddRemoveClick(suggestion)">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <i class="fa fa-remove" aria-hidden="true"></i>
+        </i>
+        <i class="add-app-loading" *ngIf="suggestion.inProcess">
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+            </svg>
+          </div>
+        </i>
+
+        <a class="fa fa-steam add-app-icon" aria-hidden="true" [href]="'http://store.steampowered.com/app/' + suggestion.appid" target="_blank"></a>
+      </div>
+    </div>
+  </div>
+</div>

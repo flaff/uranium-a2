@@ -1,5 +1,6 @@
 $bg-color: #431e33;
-$secondary: #863c66;
+//$secondary: #863c66;
+$secondary: #992568;
 $saturated: #c82282;
 
 @mixin placeholder {
@@ -18,14 +19,22 @@ $saturated: #c82282;
 }
 
 @mixin selection {
-  ::-moz-selection,
-  ::selection {
+  &::-moz-selection {
+    @content;
+  }
+  &::selection {
     @content;
   }
 }
 
-@mixin mobile {
-  @media (max-width: 520px) {
+@mixin small {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (max-width: 640px) {
     @content;
   }
 }
@@ -34,4 +43,38 @@ $saturated: #c82282;
   @media (max-width: 960px) {
     @content;
   }
+}
+
+@mixin transform-origin($value) {
+  -ms-transform-origin: $value;
+  -webkit-transform-origin: $value;
+  transform-origin: $value;
+}
+
+@mixin transform($value) {
+  -ms-transform: $value;
+  -webkit-transform: $value;
+  transform: $value;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation ($params) {
+  -webkit-animation: $params;
+  -moz-animation:    $params;
+  -o-animation:      $params;
+  animation:         $params;
 }

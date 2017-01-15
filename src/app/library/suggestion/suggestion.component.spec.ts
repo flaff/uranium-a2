@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { GridEntryComponent } from './grid-entry.component';
+import { SuggestionComponent } from './suggestion.component';
 
-describe('GridEntryComponent', () => {
-  let component: GridEntryComponent;
-  let fixture: ComponentFixture<GridEntryComponent>;
+describe('SuggestionComponent', () => {
+  let component: SuggestionComponent;
+  let fixture: ComponentFixture<SuggestionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GridEntryComponent ]
+      declarations: [ SuggestionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GridEntryComponent);
+    fixture = TestBed.createComponent(SuggestionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

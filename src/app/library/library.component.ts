@@ -11,10 +11,11 @@ export class LibraryComponent implements OnInit {
 
   apps : SteamApp[];
 
-  constructor(private steamService: SteamService) { }
+  constructor(private steamService: SteamService) {
+  }
+
   ngOnInit() {
-    this.steamService.getApps().subscribe(
-      apps => this.apps = apps
-    );
+    this.steamService.steamApps.subscribe(apps => this.apps = apps);
+    this.steamService.getApps();
   }
 }
